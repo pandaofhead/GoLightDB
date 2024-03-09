@@ -4,6 +4,7 @@ import (
 	"testing"
 )
 
+// TestRoseDB_ZAdd 向有序集合 key 中添加一个或多个成员，或者更新已存在成员的分数
 func TestRoseDB_ZAdd(t *testing.T) {
 	db := ReopenDb()
 	defer db.Close()

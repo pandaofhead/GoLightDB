@@ -20,7 +20,7 @@ func LoadMeta(path string) (m *DBMeta) {
 		return
 	}
 	defer file.Close()
-
+	//io/ioutil.ReadAll() 从文件中读取数据
 	b, _ := ioutil.ReadAll(file)
 	_ = json.Unmarshal(b, m)
 	return

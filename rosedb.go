@@ -4,14 +4,15 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/roseduan/rosedb/index"
-	"github.com/roseduan/rosedb/storage"
-	"github.com/roseduan/rosedb/utils"
 	"io"
 	"io/ioutil"
 	"os"
 	"sync"
 	"time"
+
+	"github.com/roseduan/rosedb/index"
+	"github.com/roseduan/rosedb/storage"
+	"github.com/roseduan/rosedb/utils"
 )
 
 var (
@@ -48,10 +49,10 @@ var (
 
 const (
 
-	//保存配置的文件名称
+	// configSaveFile the file name of config
 	configSaveFile = string(os.PathSeparator) + "db.cfg"
 
-	//保存数据库相关信息的文件名称
+	// dbMetaSaveFile the file name of db meta
 	dbMetaSaveFile = string(os.PathSeparator) + "db.meta"
 
 	//回收磁盘空间时的临时目录

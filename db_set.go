@@ -1,9 +1,10 @@
 package rosedb
 
 import (
+	"sync"
+
 	"github.com/roseduan/rosedb/ds/set"
 	"github.com/roseduan/rosedb/storage"
-	"sync"
 )
 
 // SetIdx the set idx
@@ -12,6 +13,7 @@ type SetIdx struct {
 	indexes *set.Set
 }
 
+// newSetIdx create a new set index
 func newSetIdx() *SetIdx {
 	return &SetIdx{indexes: set.New()}
 }

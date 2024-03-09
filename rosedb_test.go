@@ -2,14 +2,16 @@ package rosedb
 
 import (
 	"encoding/json"
-	"github.com/roseduan/rosedb/storage"
 	"io/ioutil"
 	"log"
 	"testing"
+
+	"github.com/roseduan/rosedb/storage"
 )
 
 var dbPath = "/Users/roseduan/resources/rosedb/db0"
 
+// InitDb 初始化数据库
 func InitDb() *RoseDB {
 	config := DefaultConfig()
 	config.DirPath = dbPath

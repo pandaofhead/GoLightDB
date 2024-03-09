@@ -5,7 +5,7 @@ import (
 	"reflect"
 )
 
-// List是双向链表的实现
+// List是双向链表的封装，提供了一系列的操作方法
 
 // InsertOption insert option for LInsert
 type InsertOption uint8
@@ -72,10 +72,10 @@ func (lis *List) LIndex(key string, index int) []byte {
 }
 
 // LRem 根据参数 count 的值，移除列表中与参数 value 相等的元素
-//count > 0 : 从表头开始向表尾搜索，移除与 value 相等的元素，数量为 count
-//count < 0 : 从表尾开始向表头搜索，移除与 value 相等的元素，数量为 count 的绝对值
-//count = 0 : 移除列表中所有与 value 相等的值
-//返回成功删除的元素个数
+// count > 0 : 从表头开始向表尾搜索，移除与 value 相等的元素，数量为 count
+// count < 0 : 从表尾开始向表头搜索，移除与 value 相等的元素，数量为 count 的绝对值
+// count = 0 : 移除列表中所有与 value 相等的值
+// 返回成功删除的元素个数
 func (lis *List) LRem(key string, val []byte, count int) int {
 	item := lis.record[key]
 	if item == nil {
@@ -117,7 +117,7 @@ func (lis *List) LRem(key string, val []byte, count int) int {
 }
 
 // LInsert 将值 val 插入到列表 key 当中，位于值 pivot 之前或之后
-//如果命令执行成功，返回插入操作完成之后，列表的长度。 如果没有找到 pivot ，返回 -1
+// 如果命令执行成功，返回插入操作完成之后，列表的长度。 如果没有找到 pivot ，返回 -1
 func (lis *List) LInsert(key string, option InsertOption, pivot, val []byte) int {
 	e := lis.find(key, pivot)
 	if e == nil {
@@ -136,7 +136,7 @@ func (lis *List) LInsert(key string, option InsertOption, pivot, val []byte) int
 }
 
 // LSet 将列表 key 下标为 index 的元素的值设置为 val
-//bool返回值表示操作是否成功
+// bool返回值表示操作是否成功
 func (lis List) LSet(key string, index int, val []byte) bool {
 	e := lis.index(key, index)
 	if e == nil {
@@ -148,8 +148,8 @@ func (lis List) LSet(key string, index int, val []byte) bool {
 }
 
 // LRange 返回列表 key 中指定区间内的元素，区间以偏移量 start 和 end 指定
-//如果 start 下标比列表的最大下标(len-1)还要大，那么 LRange 返回一个空列表
-//如果 end 下标比 len 还要大，则将 end 的值设置为 len - 1
+// 如果 start 下标比列表的最大下标(len-1)还要大，那么 LRange 返回一个空列表
+// 如果 end 下标比 len 还要大，则将 end 的值设置为 len - 1
 func (lis *List) LRange(key string, start, end int) [][]byte {
 	var val [][]byte
 	item := lis.record[key]
@@ -334,7 +334,7 @@ func (lis *List) pop(front bool, key string) []byte {
 	return val
 }
 
-//校验index是否有效，并返回新的index
+// 校验index是否有效，并返回新的index
 func (lis *List) validIndex(key string, index int) (bool, int) {
 	item := lis.record[key]
 	if item == nil || item.Len() <= 0 {
@@ -349,7 +349,7 @@ func (lis *List) validIndex(key string, index int) (bool, int) {
 	return index >= 0 && index < length, index
 }
 
-//处理start和end的值(负数和边界情况)
+// 处理start和end的值(负数和边界情况)
 func (lis *List) handleIndex(length, start, end int) (int, int) {
 	if start < 0 {
 		start += length

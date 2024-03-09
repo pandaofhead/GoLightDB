@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"encoding/binary"
 	"fmt"
-	"github.com/roseduan/rosedb"
 	"io"
 	"log"
 	"net"
@@ -12,8 +11,11 @@ import (
 	"strings"
 	"sync"
 	"time"
+
+	"github.com/roseduan/rosedb"
 )
 
+// ExecCmdFunc func for cmd execute
 var reg, _ = regexp.Compile(`'.*?'|".*?"|\S+`)
 
 const connInterval = 8

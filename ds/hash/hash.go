@@ -1,6 +1,6 @@
 package hash
 
-// 哈希hash实现
+// hash实现
 
 type (
 	// Hash 哈希表结构定义
@@ -18,8 +18,8 @@ func New() *Hash {
 }
 
 // HSet 将哈希表 hash 中域 field 的值设置为 value
-//如果给定的哈希表并不存在， 那么一个新的哈希表将被创建并执行 HSet 操作
-//如果域 field 已经存在于哈希表中， 那么它的旧值将被新值 value 覆盖
+// 如果给定的哈希表并不存在， 那么一个新的哈希表将被创建并执行 HSet 操作
+// 如果域 field 已经存在于哈希表中， 那么它的旧值将被新值 value 覆盖
 func (h *Hash) HSet(key string, field string, value []byte) int {
 	if !h.exist(key) {
 		h.record[key] = make(map[string][]byte)
@@ -30,7 +30,7 @@ func (h *Hash) HSet(key string, field string, value []byte) int {
 }
 
 // HSetNx 当且仅当域 field 尚未存在于哈希表的情况下， 将它的值设置为 value
-//如果给定域已经存在于哈希表当中， 那么命令将放弃执行设置操作
+// 如果给定域已经存在于哈希表当中， 那么命令将放弃执行设置操作
 func (h *Hash) HSetNx(key string, field string, value []byte) bool {
 	if !h.exist(key) {
 		h.record[key] = make(map[string][]byte)
@@ -67,7 +67,7 @@ func (h *Hash) HGetAll(key string) (res [][]byte) {
 }
 
 // HDel 删除哈希表 key 中的一个或多个指定域，不存在的域将被忽略
-//返回是否被成功移除
+// 返回是否被成功移除
 func (h *Hash) HDel(key, field string) bool {
 	if !h.exist(key) {
 		return false

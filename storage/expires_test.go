@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// TestExpires_SaveExpires 测试过期字典的持久化
 func TestExpires_SaveExpires(t *testing.T) {
 	//expires := make(Expires)
 	//expires["key_001"] = 43312223

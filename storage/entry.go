@@ -6,6 +6,7 @@ import (
 	"hash/crc32"
 )
 
+// ErrInvalidEntry invalid entry
 var (
 	// ErrInvalidEntry invalid entry
 	ErrInvalidEntry = errors.New("storage/entry: invalid entry")
@@ -20,7 +21,7 @@ const (
 	entryHeaderSize = 20
 )
 
-//Value的数据结构类型
+// Value的数据结构类型
 const (
 	String uint16 = iota
 	List

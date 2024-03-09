@@ -3,13 +3,14 @@ package storage
 import (
 	"errors"
 	"fmt"
-	"github.com/roseduan/mmap-go"
 	"hash/crc32"
 	"io/ioutil"
 	"os"
 	"sort"
 	"strconv"
 	"strings"
+
+	"github.com/roseduan/mmap-go"
 )
 
 const (
@@ -123,6 +124,7 @@ func (df *DBFile) Read(offset int64) (e *Entry, err error) {
 	return
 }
 
+// readBuf 从文件的offset处读取n个字节
 func (df *DBFile) readBuf(offset int64, n int64) ([]byte, error) {
 	buf := make([]byte, n)
 
@@ -166,7 +168,7 @@ func (df *DBFile) Write(e *Entry) error {
 }
 
 // Close 读写后进行关闭操作
-//sync 关闭前是否持久化数据
+// sync 关闭前是否持久化数据
 func (df *DBFile) Close(sync bool) (err error) {
 	if sync {
 		err = df.Sync()

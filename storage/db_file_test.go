@@ -5,6 +5,7 @@ import (
 	"testing"
 )
 
+// TestNewDBFile 测试新建db文件
 const (
 	path1            = "/Users/roseduan/resources/rosedb"
 	fileID1          = 0

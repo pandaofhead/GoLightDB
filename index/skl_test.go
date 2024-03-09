@@ -11,6 +11,7 @@ type Employee struct {
 	age  uint8
 }
 
+// TestSkipList_Put
 func TestSkipList_Put(t *testing.T) {
 	list := NewSkipList()
 	val := []byte("test_val")

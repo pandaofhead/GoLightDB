@@ -1,7 +1,8 @@
 package set
 
-// 集合set实现
-
+// 集合set的封装
+// 1. 集合中的元素是唯一的
+// 2. 集合中的元素是无序的
 type (
 	// Set set idx
 	Set struct {

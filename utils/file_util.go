@@ -52,7 +52,7 @@ func CopyDir(src string, dst string) error {
 	return nil
 }
 
-// CopyFile 拷贝文件
+// copyFile 拷贝文件
 func CopyFile(src, dst string) error {
 	var (
 		err     error

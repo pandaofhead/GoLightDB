@@ -2,10 +2,12 @@ package cmd
 
 import (
 	"errors"
-	"github.com/roseduan/rosedb"
 	"strconv"
+
+	"github.com/roseduan/rosedb"
 )
 
+// ErrSyntaxIncorrect incorrect err
 // ErrSyntaxIncorrect incorrect err
 var ErrSyntaxIncorrect = errors.New("syntax err")
 

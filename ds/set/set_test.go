@@ -7,6 +7,7 @@ import (
 
 var key string = "my_set"
 
+// InitSet 初始化一个set
 func InitSet() *Set {
 	set := New()
 

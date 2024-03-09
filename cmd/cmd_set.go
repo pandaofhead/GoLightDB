@@ -1,10 +1,12 @@
 package cmd
 
 import (
-	"github.com/roseduan/rosedb"
 	"strconv"
+
+	"github.com/roseduan/rosedb"
 )
 
+// sAdd adds one or more members to a set
 func sAdd(db *rosedb.RoseDB, args []string) (res string, err error) {
 	if len(args) <= 1 {
 		err = ErrSyntaxIncorrect

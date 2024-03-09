@@ -6,6 +6,7 @@ import (
 	"time"
 )
 
+// TestZSet_ZAdd 向有序集合中添加元素
 func InitZSet() *SortedSet {
 	zSet := New()
 	zSet.ZAdd("myzset", 19, "ced")

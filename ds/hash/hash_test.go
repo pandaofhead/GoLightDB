@@ -4,6 +4,7 @@ import "testing"
 
 var key = "my_hash"
 
+// InitHash 初始化一个hash
 func InitHash() *Hash {
 	hash := New()
 

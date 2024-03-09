@@ -3,6 +3,7 @@ package utils
 import "strconv"
 
 // Float64ToStr float64类型转换为string
+// 保留小数点后n位
 func Float64ToStr(val float64) string {
 	return strconv.FormatFloat(val, 'f', -1, 64)
 }

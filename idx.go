@@ -1,20 +1,21 @@
 package rosedb
 
 import (
-	"github.com/roseduan/rosedb/ds/list"
-	"github.com/roseduan/rosedb/index"
-	"github.com/roseduan/rosedb/utils"
 	"io"
 	"sort"
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/roseduan/rosedb/ds/list"
+	"github.com/roseduan/rosedb/index"
+	"github.com/roseduan/rosedb/utils"
 )
 
 // DataType 数据类型定义
 type DataType = uint16
 
-// 数据类型定义
+// define the data type
 const (
 	String DataType = iota
 	List

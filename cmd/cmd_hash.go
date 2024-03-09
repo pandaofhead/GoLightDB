@@ -1,10 +1,12 @@
 package cmd
 
 import (
-	"github.com/roseduan/rosedb"
 	"strconv"
+
+	"github.com/roseduan/rosedb"
 )
 
+// hSet adds one or more field-value pairs to a hash
 func hSet(db *rosedb.RoseDB, args []string) (res string, err error) {
 	if len(args) != 3 {
 		err = ErrSyntaxIncorrect

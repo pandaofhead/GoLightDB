@@ -44,6 +44,7 @@ func TestRoseDB_SAdd(t *testing.T) {
 	})
 }
 
+// TestRoseDB_SAdd 向集合中添加数据
 func TestRoseDB_SPop(t *testing.T) {
 	db := ReopenDb()
 	defer db.Close()

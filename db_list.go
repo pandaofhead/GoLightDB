@@ -2,12 +2,13 @@ package rosedb
 
 import (
 	"bytes"
-	"github.com/roseduan/rosedb/ds/list"
-	"github.com/roseduan/rosedb/storage"
 	"log"
 	"strconv"
 	"strings"
 	"sync"
+
+	"github.com/roseduan/rosedb/ds/list"
+	"github.com/roseduan/rosedb/storage"
 )
 
 // ListIdx the list idx
@@ -107,10 +108,10 @@ func (db *RoseDB) LIndex(key []byte, idx int) []byte {
 }
 
 // LRem 根据参数 count 的值，移除列表中与参数 value 相等的元素
-//count > 0 : 从表头开始向表尾搜索，移除与 value 相等的元素，数量为 count
-//count < 0 : 从表尾开始向表头搜索，移除与 value 相等的元素，数量为 count 的绝对值
-//count = 0 : 移除列表中所有与 value 相等的值
-//返回成功删除的元素个数
+// count > 0 : 从表头开始向表尾搜索，移除与 value 相等的元素，数量为 count
+// count < 0 : 从表尾开始向表头搜索，移除与 value 相等的元素，数量为 count 的绝对值
+// count = 0 : 移除列表中所有与 value 相等的值
+// return 移除的元素个数
 func (db *RoseDB) LRem(key, value []byte, count int) (int, error) {
 
 	db.listIndex.mu.Lock()
@@ -130,7 +131,7 @@ func (db *RoseDB) LRem(key, value []byte, count int) (int, error) {
 }
 
 // LInsert 将值 val 插入到列表 key 当中，位于值 pivot 之前或之后
-//如果命令执行成功，返回插入操作完成之后，列表的长度。 如果没有找到 pivot ，返回 -1
+// 如果命令执行成功，返回插入操作完成之后，列表的长度。 如果没有找到 pivot ，返回 -1
 func (db *RoseDB) LInsert(key string, option list.InsertOption, pivot, val []byte) (count int, err error) {
 
 	if err = db.checkKeyValue([]byte(key), val); err != nil {
@@ -161,7 +162,7 @@ func (db *RoseDB) LInsert(key string, option list.InsertOption, pivot, val []byt
 }
 
 // LSet 将列表 key 下标为 index 的元素的值设置为 val
-//bool返回值表示操作是否成功
+// bool返回值表示操作是否成功
 func (db *RoseDB) LSet(key []byte, idx int, val []byte) (bool, error) {
 
 	if err := db.checkKeyValue(key, val); err != nil {
@@ -203,8 +204,8 @@ func (db *RoseDB) LTrim(key []byte, start, end int) error {
 }
 
 // LRange 返回列表 key 中指定区间内的元素，区间以偏移量 start 和 end 指定
-//如果 start 下标比列表的最大下标(len-1)还要大，那么 LRange 返回一个空列表
-//如果 end 下标比 len 还要大，则将 end 的值设置为 len - 1
+// 如果 start 下标比列表的最大下标(len-1)还要大，那么 LRange 返回一个空列表
+// 如果 end 下标比 len 还要大，则将 end 的值设置为 len - 1
 func (db *RoseDB) LRange(key []byte, start, end int) ([][]byte, error) {
 	db.listIndex.mu.RLock()
 	defer db.listIndex.mu.RUnlock()

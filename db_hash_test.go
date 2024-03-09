@@ -7,6 +7,7 @@ import (
 	"time"
 )
 
+// TestRoseDB_HSet 向哈希表中添加数据
 var key = "myhash"
 
 func TestRoseDB_HSet(t *testing.T) {

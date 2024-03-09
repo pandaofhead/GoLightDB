@@ -9,6 +9,7 @@ import (
 	"time"
 )
 
+// TestRoseDB_Set 向数据库中写入数据
 func TestRoseDB_Set(t *testing.T) {
 
 	t.Run("normal situation", func(t *testing.T) {

@@ -5,11 +5,12 @@ import (
 	"encoding/binary"
 	"flag"
 	"fmt"
-	"github.com/peterh/liner"
 	"log"
 	"net"
 	"os"
 	"strings"
+
+	"github.com/peterh/liner"
 )
 
 var commandList = [][]string{
@@ -76,7 +77,7 @@ var commandList = [][]string{
 }
 
 var host = flag.String("h", "127.0.0.1", "the rosedb server host, default 127.0.0.1")
-var port = flag.Int("p", 5200, "the rosedb server port, default 5200")
+var port = flag.Int("p", 5200, "server port, default 5200")
 
 const cmdHistoryPath = "/tmp/rosedb-cli"
 

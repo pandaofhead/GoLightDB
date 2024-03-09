@@ -7,6 +7,7 @@ import (
 	"os"
 )
 
+// header size
 const expireHeadSize = 12
 
 // Expires 过期字典定义

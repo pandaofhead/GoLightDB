@@ -7,6 +7,7 @@ import (
 	"testing"
 )
 
+// TestNewEntry 测试新建entry
 func TestNewEntry(t *testing.T) {
 	key, val := []byte("test_key"), []byte("test_val")
 	extra := []byte("extar val")

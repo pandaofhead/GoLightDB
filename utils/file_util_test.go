@@ -1,12 +1,14 @@
 package utils
 
 import (
-	"github.com/roseduan/rosedb/storage"
 	"log"
 	"os"
 	"testing"
+
+	"github.com/roseduan/rosedb/storage"
 )
 
+// TestExist1 测试文件或目录是否存在
 func TestExist1(t *testing.T) {
 	t.Log(os.TempDir() + "ssds")
 

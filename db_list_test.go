@@ -1,14 +1,16 @@
 package rosedb
 
 import (
-	"github.com/roseduan/rosedb/ds/list"
 	"log"
 	"math/rand"
 	"strconv"
 	"testing"
 	"time"
+
+	"github.com/roseduan/rosedb/ds/list"
 )
 
+// TestRoseDB_LPush 向列表的头部添加元素
 func TestRoseDB_LPush(t *testing.T) {
 
 	t.Run("normal situation", func(t *testing.T) {

@@ -1,11 +1,13 @@
 package cmd
 
 import (
+	"strconv"
+
 	"github.com/roseduan/rosedb"
 	"github.com/roseduan/rosedb/ds/list"
-	"strconv"
 )
 
+// lPush adds one or more members to a list
 func lPush(db *rosedb.RoseDB, args []string) (res string, err error) {
 	if len(args) < 2 {
 		err = ErrSyntaxIncorrect

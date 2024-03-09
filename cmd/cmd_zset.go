@@ -2,11 +2,13 @@ package cmd
 
 import (
 	"fmt"
+	"strconv"
+
 	"github.com/roseduan/rosedb"
 	"github.com/roseduan/rosedb/utils"
-	"strconv"
 )
 
+// Zset commands
 func zAdd(db *rosedb.RoseDB, args []string) (res string, err error) {
 	if len(args) != 3 {
 		err = ErrSyntaxIncorrect

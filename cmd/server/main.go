@@ -3,19 +3,20 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/pelletier/go-toml"
-	"github.com/roseduan/rosedb"
-	"github.com/roseduan/rosedb/cmd"
 	"io/ioutil"
 	"log"
 	"os"
 	"os/signal"
 	"syscall"
+
+	"github.com/pelletier/go-toml"
+	"github.com/roseduan/rosedb"
+	"github.com/roseduan/rosedb/cmd"
 )
 
 func init() {
 	// print banner
-	banner, _ := ioutil.ReadFile("../../resource/banner.txt")
+	banner, _ := os.ReadFile("../../resource/banner.txt")
 	fmt.Println(string(banner))
 }
 

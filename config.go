@@ -4,6 +4,7 @@ import (
 	"github.com/roseduan/rosedb/storage"
 )
 
+// DataType 数据类型定义
 // DataIndexMode 数据索引的模式
 type DataIndexMode int
 

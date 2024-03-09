@@ -1,9 +1,10 @@
 package rosedb
 
 import (
+	"sync"
+
 	"github.com/roseduan/rosedb/ds/hash"
 	"github.com/roseduan/rosedb/storage"
-	"sync"
 )
 
 // HashIdx hash idx
@@ -11,6 +12,8 @@ type HashIdx struct {
 	mu      sync.RWMutex
 	indexes *hash.Hash
 }
+
+// newHashIdx create a new hash index
 
 func newHashIdx() *HashIdx {
 	return &HashIdx{indexes: hash.New()}

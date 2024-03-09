@@ -2,7 +2,6 @@ package index
 
 //SkipList是跳表的实现，跳表是一个高效的可替代平衡二叉搜索树的数据结构
 //它能够在O(log(n))的时间复杂度下进行插入、删除、查找操作
-//跳表的具体解释可参考Wikipedia上的描述：https://zh.wikipedia.org/wiki/%E8%B7%B3%E8%B7%83%E5%88%97%E8%A1%A8
 
 import (
 	"bytes"
@@ -17,7 +16,7 @@ const (
 	probability float64 = 1 / math.E
 )
 
-//遍历节点的函数，bool返回值为false时遍历结束
+// 遍历节点的函数，bool返回值为false时遍历结束
 type handleEle func(e *Element) bool
 
 type (
@@ -78,6 +77,7 @@ func (e *Element) Next() *Element {
 }
 
 // Front 获取跳表头元素，获取到之后，可向后遍历得到所有的数据
+//
 //	e := list.Front()
 //	for p := e; p != nil; p = p.Next() {
 //		//do something with Element p
@@ -87,7 +87,7 @@ func (t *SkipList) Front() *Element {
 }
 
 // Put 方法存储一个元素至跳表中，如果key已经存在，则会更新其对应的value
-//因此此跳表的实现暂不支持相同的key
+// 因此此跳表的实现暂不支持相同的key
 func (t *SkipList) Put(key []byte, value interface{}) *Element {
 	var element *Element
 	prev := t.backNodes(key)
@@ -115,7 +115,7 @@ func (t *SkipList) Put(key []byte, value interface{}) *Element {
 }
 
 // Get 方法根据 key 查找对应的 Element 元素
-//未找到则返回nil
+// 未找到则返回nil
 func (t *SkipList) Get(key []byte) *Element {
 	var prev = &t.Node
 	var next *Element
@@ -166,7 +166,7 @@ func (t *SkipList) Foreach(fun handleEle) {
 	}
 }
 
-//找到key对应的前一个节点索引的信息
+// 找到key对应的前一个节点索引的信息
 func (t *SkipList) backNodes(key []byte) []*Node {
 	var prev = &t.Node
 	var next *Element
@@ -208,7 +208,7 @@ func (t *SkipList) FindPrefix(prefix []byte) *Element {
 	return next
 }
 
-//生成索引随机层数
+// 生成索引随机层数
 func (t *SkipList) randomLevel() (level int) {
 	r := float64(t.randSource.Int63()) / (1 << 63)
 

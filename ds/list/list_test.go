@@ -6,6 +6,7 @@ import (
 	"testing"
 )
 
+// TestList_LPush 向列表的头部添加元素
 var key string = "my_list"
 
 func InitList() *List {
